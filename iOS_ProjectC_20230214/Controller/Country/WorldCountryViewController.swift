@@ -24,6 +24,14 @@ class WorldCountryViewController: UIViewController {
         self.jsonDecoding()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func navigationControllerLayout() {
         self.navigationItem.title = "세계날씨"
         
@@ -31,6 +39,13 @@ class WorldCountryViewController: UIViewController {
         navigationBarAppearance.backgroundColor = UIColor(red: 72/255, green: 145/255, blue: 221/255, alpha: 1.0)
         self.navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        
+//        self.navigationItem.backBarButtonItem?.tintColor = .white
+//        self.navigationController?.navigationBar.backItem?.leftBarButtonItem?.tintColor = .white
+//        self.navigationController?.navigationItem.leftBarButtonItem?.tintColor = .white
+        
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
@@ -47,11 +62,6 @@ class WorldCountryViewController: UIViewController {
         }
         self.tableView?.reloadData()
     }
-    
-    //    private func registerXib() {
-    //        let nibName = UINib(nibName: self.cellIdentifier, bundle: nil)
-    //        tableView.register(nibName, forCellReuseIdentifier: self.cellIdentifier)
-    //    }
 }
 
 extension WorldCountryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -68,15 +78,15 @@ extension WorldCountryViewController: UITableViewDelegate, UITableViewDataSource
         return self.countries.count
     }
     
-//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            guard let nextViewController: CityListViewController = segue.destination as? CityListViewController else {
-//                return
-//            }
-//            guard let cell: CountryCell = sender as? CountryCell else {
-//                return
-//            }
-//            nextViewController.countryCode = countries[indexPath.row].assetName
-//        }
+    //        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //            guard let nextViewController: CityListViewController = segue.destination as? CityListViewController else {
+    //                return
+    //            }
+    //            guard let cell: CountryCell = sender as? CountryCell else {
+    //                return
+    //            }
+    //            nextViewController.countryCode = countries[indexPath.row].assetName
+    //        }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
